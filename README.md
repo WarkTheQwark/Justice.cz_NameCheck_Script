@@ -41,3 +41,28 @@ The script expects a file named `names.xlsx` in the same directory as the script
 |---------------|-------------|
 | Example One   |             |
 | Another Name  |             |
+
+## Usage
+1. Prepare your Excel file
+   Place names.xlsx in the same directory as check_names.py.
+2. Run the script
+   ```bash
+   check_names.py
+   ```
+3. View results
+  The script updates names.xlsx:
+- MATCH_COUNT = free → name is available.
+- MATCH_COUNT = <number> → number of matching entries found.
+- Available names are listed first.
+
+## Notes
+Default behavior launches Chrome in non-headless mode so you can see the searches.
+To run in headless mode, uncomment:
+`options.add_argument("--headless")`
+
+You may need to increase the time.sleep() delays if your internet connection is slow, as too short a delay can cause missed results.
+
+The script specifically targets the default Czech Business Register search form at:
+https://or.justice.cz/ias/ui/rejstrik-$firma
+
+If you wish to use different settings, make one manual serach with desired settings and use the resulting URL instead, justice.cz will references settings in the URL and is consistent between additional requests.
