@@ -1,3 +1,5 @@
+# check_names.py — © 2025 David Krejcik — Licensed under the MIT License
+
 import os
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -76,3 +78,4 @@ driver.quit()
 print("Done.")
 
 time.sleep(3)
+
