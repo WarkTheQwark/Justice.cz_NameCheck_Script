@@ -32,9 +32,9 @@ pip install pandas selenium openpyxl webdriver-manager
 The script expects a file named `names.xlsx` in the same directory as the script.
 
 ### Excel file requirements:
-- Sheet name: Sheet1
-- Column: NAMES (case-sensitive) containing the list of names to check.
-- Optional column: MATCH_COUNT — will be created automatically if missing.
+- Sheet name: `Sheet1` — Default Excel option
+- Column: `NAMES` (case-sensitive) containing the list of names to check.
+- Optional column: `MATCH_COUNT` — will be created automatically if missing.
 
 ### Example
 | NAMES         | MATCH_COUNT |
@@ -44,13 +44,13 @@ The script expects a file named `names.xlsx` in the same directory as the script
 
 ## Usage
 1. Prepare your Excel file
-   Place names.xlsx in the same directory as check_names.py.
+- Place names.xlsx in the same directory as check_names.py.
 2. Run the script
    ```bash
-   check_names.py
+   python check_names.py
    ```
 3. View results
-  The script updates names.xlsx:
+The script updates names.xlsx:
 - MATCH_COUNT = free → name is available.
 - MATCH_COUNT = <number> → number of matching entries found.
 - Available names are listed first.
