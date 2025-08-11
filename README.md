@@ -14,16 +14,16 @@ This Python script automates the process of checking company name availability o
 
 ## Requirements
 
-### Python
+#### Python
 - Python 3.8 or higher
 
-### Dependencies
+#### Dependencies
 Install required packages:
 ```bash
 pip install pandas selenium openpyxl webdriver-manager
 ```
 
-### Browser Driver
+#### Browser Driver
 - Google Chrome is required.
 - The script uses webdriver-manager to automatically handle the correct ChromeDriver installation.
 
@@ -31,26 +31,25 @@ pip install pandas selenium openpyxl webdriver-manager
 
 The script expects a file named `names.xlsx` in the same directory as the script.
 
-### Excel file requirements:
+#### Excel file requirements:
 - Sheet name: `Sheet1` — Default Excel option
 - Column: `NAMES` (case-sensitive) containing the list of names to check.
 - Optional column: `MATCH_COUNT` — will be created automatically if missing.
 
-### Example
+#### Example
 | NAMES         | MATCH_COUNT |
 |---------------|-------------|
 | Example One   |             |
 | Another Name  |             |
 
 ## Usage
-1. Prepare your Excel file
+Prepare your Excel file
 - Place names.xlsx in the same directory as check_names.py.
-2. Run the script
+Run the script
    ```bash
    python check_names.py
    ```
-3. View results
-The script updates names.xlsx:
+View results, the script updates names.xlsx:
 - MATCH_COUNT = free → name is available.
 - MATCH_COUNT = <number> → number of matching entries found.
 - Available names are listed first.
@@ -66,7 +65,7 @@ The script specifically targets the default Czech Business Register search form 
 https://or.justice.cz/ias/ui/rejstrik-$firma
 If you wish to use different settings, make one manual search with the desired settings and use the resulting URL instead, justice.cz references settings in the URL and is consistent between additional requests.
 
-### Main Failure Case:
+#### Main Failure Case:
 While justice.cz does not have bot detection, moderated networks, or your administrator may not allow Selenium use, as its usage on pages with robust automation constraints may lead to restriction of access. In this case, the script will fail to access the target website and return one of many errors, such as:
 - `DevTools remote debugging is disallowed by the system admin.`
 - `Error code: 401  Error message: Authentication Failed: wrong_secret`
