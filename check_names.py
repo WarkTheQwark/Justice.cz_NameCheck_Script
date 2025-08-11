@@ -26,7 +26,7 @@ if 'MATCH_COUNT' not in df.columns:
 # webscrape setup
 print('Starting Web Browser')
 options = Options()
-#options.add_argument("--headless")
+options.add_argument("--headless")
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 driver.get(SEARCH_URL)
 time.sleep(2.0) # Wait for page load
@@ -74,4 +74,5 @@ print('File Saved')
 
 driver.quit()
 print("Done.")
+
 time.sleep(3)
