@@ -56,13 +56,18 @@ The script updates names.xlsx:
 - Available names are listed first.
 
 ## Notes
-Default behavior launches Chrome in non-headless mode so you can see the searches.
-To run in headless mode, uncomment:
+Default behavior launches Chrome in headless mode to increase performance and reduce network overhead.
+To run in headless mode, comment out:
 `options.add_argument("--headless")`
 
-You may need to increase the time.sleep() delays if your internet connection is slow, as too short a delay can cause missed results.
+You may need to increase the time.sleep() delays in the main loop if your internet connection is slow, as too short a delay can cause missed results.
 
 The script specifically targets the default Czech Business Register search form at:
 https://or.justice.cz/ias/ui/rejstrik-$firma
+If you wish to use different settings, make one manual search with the desired settings and use the resulting URL instead, justice.cz references settings in the URL and is consistent between additional requests.
 
-If you wish to use different settings, make one manual serach with desired settings and use the resulting URL instead, justice.cz will references settings in the URL and is consistent between additional requests.
+### Main Failure Case:
+While justice.cz does not have bot detection, moderated networks, or your administrator may not allow Selenium use, as its usage on pages with robust automation constraints may lead to restriction of access. In this case, the script will fail to access the target website and return one of many errors, such as:
+- `DevTools remote debugging is disallowed by the system admin.`
+- `Error code: 401  Error message: Authentication Failed: wrong_secret`
+- `ERROR:google_apis\gcm\engine\mcs_client.cc:702] Failed to log into GCM, resetting connection.`
