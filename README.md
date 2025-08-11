@@ -21,3 +21,23 @@ This Python script automates the process of checking company name availability o
 Install required packages:
 ```bash
 pip install pandas selenium openpyxl webdriver-manager
+```
+
+### Browser Driver
+- Google Chrome is required.
+- The script uses webdriver-manager to automatically handle the correct ChromeDriver installation.
+
+## Input File Format
+
+The script expects a file named `names.xlsx` in the same directory as the script.
+
+### Excel file requirements:
+- Sheet name: Sheet1
+- Column: NAMES (case-sensitive) containing the list of names to check.
+- Optional column: MATCH_COUNT — will be created automatically if missing.
+
+### Example
+| NAMES         | MATCH_COUNT |
+|---------------|-------------|
+| Example One   |             |
+| Another Name  |             |
